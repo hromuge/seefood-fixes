@@ -8,6 +8,22 @@ This app uses AI to detect if there is a hotdog in an image or not.
 4. Install dependencies. Go to this workspace and run `npm install`
 5. Run `nx serve api` and `nx serve hotdog`. The api will be available on http://localhost:8080/api and the frontend on http://localhost:4200/
 
+## Issues to be solved
+- [ ] upload button does not work
+- [ ] upload button should use material design
+- [ ] display the classification result in a nicer way
+  - At the moment, the classification result is just stringified JSON that is displayed in an alert. Not very user friendly. Please improve it.
+- [ ] preview the image before upload
+  - After i select an image, i only see it's name. Instead I would like to see a preview of the image, before I click on upload.
+- [ ] show loading indicator while the image is being classified
+  - The backend might take some time to classify our image. During this time, I would like to see a loading indicator, so I don't feel lost as a user. (Since the backend right now is just a mock backend, it is really fast. For demo purposes, you can add an artificial delay).
+- [ ] fix code style issues
+  - There are several code style issues. Fix them.
+- [ ] extract hotdog classification to own class in backend
+  - At the moment, the AppService in the backend has a classify method that does the (mocked) classification. Extract this classification functionality to it's own class. (Separation of concerns - the appservice it self is not responsible for actually classifying a hotdog)
+- [ ] add image size limit
+  - Image classifiers usually require a certain image dimension (e.g. 256x256). If the image is bigger, it needs to be scaled down. This can be an expensive operation. Therefore, if the image size either greater than 1MB or the image has a dimension that is > 1024px, the api should not accept the image.
+
 ## Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
