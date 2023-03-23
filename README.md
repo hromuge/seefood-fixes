@@ -6,7 +6,8 @@ This app uses AI to detect if there is a hotdog in an image or not.
 2. Install angular cli: `npm install -g @angular/cli`
 3. Install nx: `npm install -g nx`
 4. Install dependencies. Go to this workspace and run `npm install`
-5. Run `nx serve api` and `nx serve hotdog`. The api will be available on http://localhost:8080/api and the frontend on http://localhost:4200/
+5. Run `nx serve api` and `nx serve hotdog`. The api will be available on http://localhost:8080/api and the frontend on http://localhost:4200/ \
+(if you run into following issue: "Cannot find module 'ajv/dist/compile/codegen'", run the command `npm install --save-dev ajv@^7`)
 
 ## Issues to be solved
 - [ ] upload button does not work
