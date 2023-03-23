@@ -14,9 +14,18 @@ export class UploadComponent {
 
   file?: File
   res?: HotdogClassification
+  reader = new FileReader();
+  url?: any;
 
   setFile(fileInputElement: any) {
-    this.file = fileInputElement.files[0]
+    this.res = undefined;
+    if (fileInputElement && fileInputElement !== '') {
+      this.file = fileInputElement.files[0]
+      this.reader.readAsDataURL(fileInputElement.files[0]);
+      this.reader.onload = () => {
+        this.url = this.reader.result;
+      }
+    }
   }
 
   async classify() {

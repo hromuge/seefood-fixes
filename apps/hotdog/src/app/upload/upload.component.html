@@ -5,8 +5,9 @@
     (change)="setFile($event.target)"
     name="file"
   >
-  <button mat-raised-button color="primary" type="submit" (click)="classify()">Upload</button>
+  <button mat-raised-button color="primary" type="submit" (click)="classify()">Check</button>
 </form>
+<img *ngIf="url" [src]="url" alt="custom uploaded image">
 <div *ngIf="res">
   <h1>Result</h1>
   <span>Is this a Hotdog: {{res.isHotdog === true? 'Yes' : 'No'}}</span><br>
