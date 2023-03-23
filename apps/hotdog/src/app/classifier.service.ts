@@ -13,6 +13,7 @@ export class ClassifierService {
   classifyHotdog(file: File): Promise<HotdogClassification> {
     const uploadData = new FormData();
     uploadData.append('file', file, file.name);
-    return firstValueFrom(this.http.post<HotdogClassification>("/api/classify", uploadData))
+    const promise = firstValueFrom(this.http.post<HotdogClassification>("/api/classify", uploadData));
+    return promise.then(value => new Promise(resolve => setTimeout(() => resolve(value), 2000)))
   }
 }

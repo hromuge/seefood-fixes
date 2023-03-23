@@ -16,6 +16,7 @@ export class UploadComponent {
   res?: HotdogClassification
   reader = new FileReader();
   url?: any;
+  loading = false;
 
   setFile(fileInputElement: any) {
     this.res = undefined;
@@ -29,7 +30,9 @@ export class UploadComponent {
   }
 
   async classify() {
-    if (!this.file) throw Error("file is undefined")
+    if (!this.file) throw Error("file is undefined");
+    this.loading = true;
     this.res = await this.classifier.classifyHotdog(this.file)
+    this.loading = false;
   }
 }

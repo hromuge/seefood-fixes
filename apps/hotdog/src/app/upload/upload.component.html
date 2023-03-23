@@ -7,6 +7,7 @@
   >
   <button mat-raised-button color="primary" type="submit" (click)="classify()">Check</button>
 </form>
+<mat-spinner *ngIf="loading"></mat-spinner>
 <img *ngIf="url" [src]="url" alt="custom uploaded image">
 <div *ngIf="res">
   <h1>Result</h1>
