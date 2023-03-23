@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ClassifierService} from "../classifier.service";
+import {HotdogClassification} from "@seefood/api-interfaces";
 
 @Component({
   selector: 'seefood-upload',
@@ -12,6 +13,7 @@ export class UploadComponent {
   }
 
   file?: File
+  res?: HotdogClassification
 
   setFile(fileInputElement: any) {
     this.file = fileInputElement.files[0]
@@ -19,7 +21,6 @@ export class UploadComponent {
 
   async classify() {
     if (!this.file) throw Error("file is undefined")
-    const res = await this.classifier.classifyHotdog(this.file)
-    alert(JSON.stringify(res))
+    this.res = await this.classifier.classifyHotdog(this.file)
   }
 }
