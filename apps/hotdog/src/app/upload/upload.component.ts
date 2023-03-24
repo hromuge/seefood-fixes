@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {ClassifierService} from "../classifier.service";
+import {ClassifierService} from "../classify/classifier.service";
 import {HotdogClassification} from "@seefood/api-interfaces";
 
 @Component({
@@ -9,19 +9,18 @@ import {HotdogClassification} from "@seefood/api-interfaces";
 })
 export class UploadComponent {
 
-  constructor(private classifier: ClassifierService) {
-  }
 
-  @ViewChild('uploadedImage')
-  imageElement?: ElementRef;
-  file?: File
-  res?: HotdogClassification
-  img?: any;
-  loading = false;
-  maxFileSize = 1048576;
-  maxImageResolution = 1024;
+  @ViewChild('uploadedImage') imageElement?: ElementRef;
+  private file?: File
+  public res?: HotdogClassification
+  public img?: any;
+  public loading = false;
+  private maxFileSize = 1048576;
+  private maxImageResolution = 1024;
 
-  setFile(fileInputElement: any) {
+  constructor(private classifier: ClassifierService) {}
+
+  public setFile(fileInputElement: any): void {
     this.res = undefined;
     if (fileInputElement && fileInputElement !== '') {
       if (fileInputElement.files[0].size > this.maxFileSize) {
@@ -47,7 +46,7 @@ export class UploadComponent {
     }
   }
 
-  async classify() {
+  public async classify(): Promise<void> {
     if (!this.file) {
       alert("Please upload a file.")
       throw Error("file is undefined");
