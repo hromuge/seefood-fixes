@@ -8,7 +8,7 @@
   <button mat-raised-button color="primary" type="submit" (click)="classify()">Check</button>
 </form>
 <mat-spinner *ngIf="loading"></mat-spinner>
-<img #uploadedImage *ngIf="url" [src]="url" alt="custom uploaded image">
+<img #uploadedImage *ngIf="img" [src]="img.src" alt="custom uploaded image">
 <div *ngIf="res">
   <h1>Result</h1>
   <span>Is this a Hotdog: {{res.isHotdog === true? 'Yes' : 'No'}}</span><br>
