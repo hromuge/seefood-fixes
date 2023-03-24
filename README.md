@@ -10,13 +10,13 @@ This app uses AI to detect if there is a hotdog in an image or not.
 (if you run into following issue: "Cannot find module 'ajv/dist/compile/codegen'", run the command `npm install --save-dev ajv@^7`)
 
 ## Issues to be solved
-- [ ] upload button does not work
-- [ ] upload button should use material design
-- [ ] display the classification result in a nicer way
+- [x] upload button does not work
+- [x] upload button should use material design
+- [x] display the classification result in a nicer way
   - At the moment, the classification result is just stringified JSON that is displayed in an alert. Not very user friendly. Please improve it.
-- [ ] preview the image before upload
+- [x] preview the image before upload
   - After i select an image, i only see it's name. Instead I would like to see a preview of the image, before I click on upload.
-- [ ] show loading indicator while the image is being classified
+- [x] show loading indicator while the image is being classified
   - The backend might take some time to classify our image. During this time, I would like to see a loading indicator, so I don't feel lost as a user. (Since the backend right now is just a mock backend, it is really fast. For demo purposes, you can add an artificial delay).
 - [ ] fix code style issues
   - There are several code style issues. Fix them.
