@@ -3,10 +3,11 @@ import { Express } from 'express';
 import 'multer';
 import {AppService} from './app.service';
 import {FileInterceptor} from "@nestjs/platform-express";
+import {ClassifierService} from "./classifier.service";
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {
+  constructor(private readonly appService: AppService, private readonly classifierService: ClassifierService) {
   }
 
   @Get()
@@ -17,6 +18,6 @@ export class AppController {
   @Post('classify')
   @UseInterceptors(FileInterceptor('file'))
   uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return this.appService.classify(file);
+    return this.classifierService.classify(file);
   }
 }
