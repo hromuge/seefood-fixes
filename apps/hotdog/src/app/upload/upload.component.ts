@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {ClassifierService} from "../classify/classifier.service";
 import {HotdogClassification} from "@seefood/api-interfaces";
 
@@ -9,8 +9,6 @@ import {HotdogClassification} from "@seefood/api-interfaces";
 })
 export class UploadComponent {
 
-
-  @ViewChild('uploadedImage') imageElement?: ElementRef;
   private file?: File
   public res?: HotdogClassification
   public img?: any;

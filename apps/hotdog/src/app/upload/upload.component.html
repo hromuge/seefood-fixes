@@ -1,13 +1,15 @@
-<form>
-  <input
-    type="file"
-    accept="image/*"
-    (change)="setFile($event.target)"
-    name="file"
-  >
-  <button mat-raised-button color="primary" type="submit" (click)="classify()">Check</button>
-</form>
-<img #uploadedImage *ngIf="img" [src]="img.src" alt="custom uploaded image">
+<div>
+  <form>
+    <input
+      type="file"
+      accept="image/*"
+      (change)="setFile($event.target)"
+      name="file"
+    >
+    <button mat-raised-button color="primary" type="submit" (click)="classify()">Check</button>
+  </form>
+  <img *ngIf="img" [src]="img.src" alt="custom uploaded image">
+</div>
 <div *ngIf="res">
   <h1>Result</h1>
   <span>Is this a Hotdog: {{res.isHotdog === true? 'Yes' : 'No'}}</span><br>
